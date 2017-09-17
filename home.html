@@ -1,5 +1,12 @@
 <!doctype html>
 <head>
+  <style>
+    .cate .item {
+      border: 1px solid #ccc;
+      line-height: 20px;
+      padding: 0 10px;
+    }
+  </style>
 </head>
 <body>
   <header></header>
@@ -19,7 +26,8 @@ xhr.onload = function(){
 function render(cateData){
   
   for(var i = 0; i < cateData.length; i++){
-    var node = doucment.createElement('div')
+    var node = document.createElement('div')
+    node.classList.add('item')
     node.innerText = cateData[i]
     document.querySelector('.cate').appendChild(node)
   }
