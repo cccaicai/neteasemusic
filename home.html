@@ -2,13 +2,27 @@
 <head>
 </head>
 <body>
+  <header></header>
+  <main>
+    <div class="cate"></div>
+  </main>
 
 <script>
 var xhr = new XMLHttpRequest()
 xhr.open('GET', '/neteasemusic/cate.json', true)
 xhr.send()
 xhr.onload = function(){
+  render(JSON.parse(xhr.responseText))
   console.log(JSON.parse(xhr.responseText))
+}
+
+function render(cateData){
+  
+  for(var i = 0; i < cateData.length; i++){
+    var node = doucment.createElement('div')
+    node.innerText = cateData[i]
+    document.querySelector('.cate').appendChild(node)
+  }
 }
 
 </script>
